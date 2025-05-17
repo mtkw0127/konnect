@@ -3,23 +3,31 @@ package io.github.mtkw.compose.konnect
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.unit.IntSize
 
-data class KonnectInfo(
-    val size: IntSize,
-    private val positionFromParent: Offset,
-    val anchor: RectAnchor,
-) {
-    enum class RectAnchor {
-        TopStart,
-        TopCenter,
-        TopEnd,
-        CenterStart,
-        Center,
-        CenterEnd,
-        BottomStart,
-        BottomCenter,
-        BottomEnd
-    }
+enum class RectAnchor {
+    TopStart,
+    TopCenter,
+    TopEnd,
+    CenterStart,
+    Center,
+    CenterEnd,
+    BottomStart,
+    BottomCenter,
+    BottomEnd
+}
 
+enum class PointRole {
+    None,
+    Start,
+    End,
+    Both,
+}
+
+data class KonnectInfo(
+    private val size: IntSize,
+    private val positionFromParent: Offset,
+    private val anchor: RectAnchor,
+    val pointRole: PointRole,
+) {
     fun anchoredPosition(): Offset {
         return positionFromParent + when (anchor) {
             RectAnchor.TopStart -> Offset(0f, 0f)

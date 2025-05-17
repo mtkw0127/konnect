@@ -6,14 +6,14 @@ import io.github.mtkw.compose.konnect.KonnectStyle
 
 object LineDrawer : KonnectDrawer {
     override fun ContentDrawScope.draw(
-        start: KonnectInfo,
-        end: KonnectInfo,
+        p1: KonnectInfo,
+        p2: KonnectInfo,
         style: KonnectStyle
     ) {
         drawLine(
             color = style.color,
-            start = start.anchoredPosition(),
-            end = end.anchoredPosition(),
+            start = p1.anchoredPosition(),
+            end = p2.anchoredPosition(),
             strokeWidth = style.strokeWidth.toPx()
         )
     }

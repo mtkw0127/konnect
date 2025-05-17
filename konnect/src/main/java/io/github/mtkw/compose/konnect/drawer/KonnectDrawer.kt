@@ -6,8 +6,8 @@ import io.github.mtkw.compose.konnect.KonnectStyle
 
 interface KonnectDrawer {
     fun ContentDrawScope.draw(
-        start: KonnectInfo,
-        end: KonnectInfo,
+        p1: KonnectInfo,
+        p2: KonnectInfo,
         style: KonnectStyle,
     )
 }

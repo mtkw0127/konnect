@@ -15,26 +15,27 @@ fun Modifier.drawKonnect(
     Modifier.drawWithContent {
         drawContent()
         val positions = state.points.values.toList()
+        if (positions.size < 2) {
+            throw IllegalStateException("Konnect requires two points to draw.")
+        }
         if (positions.size > 2) {
             throw IllegalStateException("Konnect can only connect two points at a time.")
         }
-        if (positions.size == 2) {
-            val start = positions[0]
-            val end = positions[1]
-            with(state.style.drawer) {
-                draw(
-                    start = start,
-                    end = end,
-                    style = state.style
-                )
-            }
+
+        with(state.style.drawer) {
+            draw(
+                p1 = positions[0],
+                p2 = positions[1],
+                style = state.style
+            )
         }
     }
 )
 
 fun Modifier.konnect(
     state: KonnectState,
-    anchor: KonnectInfo.RectAnchor = KonnectInfo.RectAnchor.Center,
+    anchor: RectAnchor = RectAnchor.Center,
+    pointRole: PointRole = PointRole.None,
 ): Modifier = composed {
     val id = rememberSaveable(saver = idSaver) { KonnectState.Id(UUID.randomUUID().toString()) }
 
@@ -43,6 +44,7 @@ fun Modifier.konnect(
             size = coordinates.size,
             positionFromParent = coordinates.positionInParent(),
             anchor = anchor,
+            pointRole = pointRole,
         )
     }
 }
