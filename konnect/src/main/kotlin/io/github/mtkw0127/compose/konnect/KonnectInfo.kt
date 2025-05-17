@@ -1,4 +1,4 @@
-package io.github.mtkw.compose.konnect
+package io.github.mtkw0127.compose.konnect
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.unit.IntSize

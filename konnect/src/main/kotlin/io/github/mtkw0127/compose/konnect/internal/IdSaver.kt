@@ -1,7 +1,7 @@
-package io.github.mtkw.compose.konnect.internal
+package io.github.mtkw0127.compose.konnect.internal
 
 import androidx.compose.runtime.saveable.Saver
-import io.github.mtkw.compose.konnect.KonnectState
+import io.github.mtkw0127.compose.konnect.KonnectState
 
 internal val idSaver = Saver<KonnectState.Id, String>(
     save = { it.value },
