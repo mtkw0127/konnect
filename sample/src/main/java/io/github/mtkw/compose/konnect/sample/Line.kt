@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import io.github.mtkw.compose.konnect.KonnectInfo
 import io.github.mtkw.compose.konnect.KonnectStyle
-import io.github.mtkw.compose.konnect.KonnectionInfo
 import io.github.mtkw.compose.konnect.drawKonnect
 import io.github.mtkw.compose.konnect.konnect
 import io.github.mtkw.compose.konnect.rememberKonnectState
@@ -33,7 +33,7 @@ fun LineRow() {
             modifier = Modifier
                 .konnect(
                     state = state,
-                    anchor = KonnectionInfo.RectAnchor.CenterEnd
+                    anchor = KonnectInfo.RectAnchor.CenterEnd
                 )
                 .padding(10.dp)
         )
@@ -45,7 +45,7 @@ fun LineRow() {
             modifier = Modifier
                 .konnect(
                     state = state,
-                    anchor = KonnectionInfo.RectAnchor.CenterStart,
+                    anchor = KonnectInfo.RectAnchor.CenterStart,
                 )
                 .padding(10.dp)
         )
@@ -67,7 +67,7 @@ fun LineColum() {
             modifier = Modifier
                 .konnect(
                     state = state,
-                    anchor = KonnectionInfo.RectAnchor.BottomCenter
+                    anchor = KonnectInfo.RectAnchor.BottomCenter
                 )
                 .padding(10.dp)
         )
@@ -79,7 +79,7 @@ fun LineColum() {
             modifier = Modifier
                 .konnect(
                     state = state,
-                    anchor = KonnectionInfo.RectAnchor.TopCenter,
+                    anchor = KonnectInfo.RectAnchor.TopCenter,
                 )
                 .padding(10.dp)
         )

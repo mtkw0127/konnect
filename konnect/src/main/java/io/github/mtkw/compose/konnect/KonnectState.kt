@@ -5,11 +5,10 @@ import androidx.compose.runtime.remember
 
 data class KonnectState(
     val style: KonnectStyle,
-    val points: MutableMap<Id, KonnectionInfo> = mutableMapOf(),
+    val points: MutableMap<Id, KonnectInfo> = mutableMapOf(),
 ) {
     data class Id(val value: String)
 }
-
 
 @Composable
 fun rememberKonnectState(

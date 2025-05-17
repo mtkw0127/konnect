@@ -3,7 +3,7 @@ package io.github.mtkw.compose.konnect
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.unit.IntSize
 
-data class KonnectionInfo(
+data class KonnectInfo(
     val size: IntSize,
     private val positionFromParent: Offset,
     val anchor: RectAnchor,
