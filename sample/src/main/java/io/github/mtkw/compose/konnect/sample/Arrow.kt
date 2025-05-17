@@ -12,9 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import io.github.mtkw.compose.konnect.KonnectInfo.PointRole
+import io.github.mtkw.compose.konnect.KonnectInfo.RectAnchor
 import io.github.mtkw.compose.konnect.KonnectStyle
-import io.github.mtkw.compose.konnect.PointRole
-import io.github.mtkw.compose.konnect.RectAnchor
 import io.github.mtkw.compose.konnect.drawKonnect
 import io.github.mtkw.compose.konnect.konnect
 import io.github.mtkw.compose.konnect.rememberKonnectState

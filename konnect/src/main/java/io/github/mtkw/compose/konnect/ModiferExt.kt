@@ -6,6 +6,8 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInParent
+import io.github.mtkw.compose.konnect.KonnectInfo.PointRole
+import io.github.mtkw.compose.konnect.KonnectInfo.RectAnchor
 import io.github.mtkw.compose.konnect.internal.idSaver
 import java.util.UUID
 

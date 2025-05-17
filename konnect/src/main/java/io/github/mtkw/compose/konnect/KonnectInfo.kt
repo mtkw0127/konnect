@@ -3,24 +3,6 @@ package io.github.mtkw.compose.konnect
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.unit.IntSize
 
-enum class RectAnchor {
-    TopStart,
-    TopCenter,
-    TopEnd,
-    CenterStart,
-    Center,
-    CenterEnd,
-    BottomStart,
-    BottomCenter,
-    BottomEnd
-}
-
-enum class PointRole {
-    None,
-    Start,
-    End,
-    Both,
-}
 
 data class KonnectInfo(
     private val size: IntSize,
@@ -40,5 +22,24 @@ data class KonnectInfo(
             RectAnchor.BottomCenter -> Offset(size.width / 2f, size.height.toFloat())
             RectAnchor.BottomEnd -> Offset(size.width.toFloat(), size.height.toFloat())
         }
+    }
+
+    enum class RectAnchor {
+        TopStart,
+        TopCenter,
+        TopEnd,
+        CenterStart,
+        Center,
+        CenterEnd,
+        BottomStart,
+        BottomCenter,
+        BottomEnd
+    }
+
+    enum class PointRole {
+        None,
+        Start,
+        End,
+        Both,
     }
 }

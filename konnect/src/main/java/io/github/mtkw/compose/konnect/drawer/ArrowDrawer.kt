@@ -4,8 +4,8 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.unit.dp
 import io.github.mtkw.compose.konnect.KonnectInfo
+import io.github.mtkw.compose.konnect.KonnectInfo.PointRole
 import io.github.mtkw.compose.konnect.KonnectStyle
-import io.github.mtkw.compose.konnect.PointRole
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -36,8 +36,16 @@ object ArrowDrawer : KonnectDrawer {
             }
 
             p1.pointRole == PointRole.Both && p2.pointRole == PointRole.Both -> {
-                drawArrowHead(start = p1.anchoredPosition(), end = p2.anchoredPosition(), style = style)
-                drawArrowHead(start = p2.anchoredPosition(), end = p1.anchoredPosition(), style = style)
+                drawArrowHead(
+                    start = p1.anchoredPosition(),
+                    end = p2.anchoredPosition(),
+                    style = style
+                )
+                drawArrowHead(
+                    start = p2.anchoredPosition(),
+                    end = p1.anchoredPosition(),
+                    style = style
+                )
             }
 
             else -> {
