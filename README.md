@@ -20,7 +20,7 @@ composables — with support for lines, arrows, and more.
 
 ```kotlin
 dependencies {
-    implementation("io.github.mtkw.konnect:konnect:<version>")
+    implementation("io.github.mtkw0127.konnect:konnect:<version>")
 }
 ```
 
@@ -147,4 +147,4 @@ MIT License
 
 ## 👤 Author
 
-Created by [@mtkw0127](https://github.com/mtkw)
+Created by [@mtkw0127](https://github.com/mtkw0127)
