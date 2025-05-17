@@ -1,13 +1,5 @@
 package io.github.mtkw.compose.konnect
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.Saver
@@ -19,7 +11,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInParent
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
@@ -81,74 +72,7 @@ data class KonnectState(
     data class Id(val value: String)
 }
 
-@Composable
-fun Sample() {
-    val state1 = rememberKonnectState(
-        style = KonnectStyle.Line(
-            color = Color.Red,
-            strokeWidth = 2.dp,
-        )
-    )
-    val state2 = rememberKonnectState(
-        style = KonnectStyle.Line(
-            color = Color.Blue,
-            strokeWidth = 1.dp,
-        )
-    )
-    Column(
-        modifier = Modifier.fillMaxSize(),
-    ) {
-        Row(modifier = Modifier.drawKonnect(state1)) {
-            Text(
-                text = "Item 1-1",
-                modifier = Modifier
-                    .konnect(
-                        state = state1,
-                        anchor = KonnectionInfo.RectAnchor.CenterEnd
-                    )
-                    .padding(10.dp)
-            )
-
-            Spacer(modifier = Modifier.width(20.dp))
-
-            Text(
-                text = "Item 1-2",
-                modifier = Modifier
-                    .konnect(
-                        state = state1,
-                        anchor = KonnectionInfo.RectAnchor.CenterStart,
-                    )
-                    .padding(10.dp)
-            )
-        }
-
-        Column(modifier = Modifier.drawKonnect(state2)) {
-            Text(
-                text = "Item 2-1",
-                modifier = Modifier
-                    .konnect(
-                        state = state2,
-                        anchor = KonnectionInfo.RectAnchor.BottomCenter
-                    )
-                    .padding(10.dp)
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Text(
-                text = "Item 2-2",
-                modifier = Modifier
-                    .konnect(
-                        state = state2,
-                        anchor = KonnectionInfo.RectAnchor.TopCenter,
-                    )
-                    .padding(10.dp)
-            )
-        }
-    }
-}
-
-private fun Modifier.drawKonnect(
+fun Modifier.drawKonnect(
     state: KonnectState,
 ): Modifier = this.then(
     Modifier.drawWithContent {
@@ -169,7 +93,7 @@ private fun Modifier.drawKonnect(
     }
 )
 
-private fun Modifier.konnect(
+fun Modifier.konnect(
     state: KonnectState,
     anchor: KonnectionInfo.RectAnchor = KonnectionInfo.RectAnchor.Center,
 ): Modifier = composed {
@@ -189,16 +113,10 @@ private fun Modifier.konnect(
 }
 
 @Composable
-private fun rememberKonnectState(
+fun rememberKonnectState(
     style: KonnectStyle = KonnectStyle.Line.Default,
 ): KonnectState = remember {
     return@remember KonnectState(
         style = style,
     )
-}
-
-@Composable
-@Preview
-private fun SamplePreview() {
-    Sample()
 }
