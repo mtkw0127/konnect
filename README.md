@@ -16,8 +16,6 @@ composables — with support for lines, arrows, and more.
 
 ## 📦 Installation
 
-(Coming soon on MavenCentral)
-
 ```kotlin
 dependencies {
     implementation("io.github.mtkw0127.konnect:konnect:<version>")
