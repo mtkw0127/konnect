@@ -1,11 +1,16 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.vanniktech.maven.publish)
+    `maven-publish`
+    signing
 }
 
 android {
-    namespace = "io.github.mtkw.compose.konnect"
+    namespace = "io.github.mtkw0127.compose.konnect"
     compileSdk = 35
 
     defaultConfig {
@@ -46,4 +51,18 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+signing {
+    val keyId = System.getenv("signingInMemoryKeyId")
+    val key = System.getenv("signingInMemoryKey")
+    val password = System.getenv("signingInMemoryKeyPassword")
+    if (keyId != null && key != null && password != null) {
+        useInMemoryPgpKeys(keyId, key, password)
+        sign(publishing.publications)
+    }
+}
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 }
