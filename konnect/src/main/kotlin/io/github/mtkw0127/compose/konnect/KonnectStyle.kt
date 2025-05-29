@@ -11,11 +11,13 @@ sealed interface KonnectStyle {
     val color: Color
     val strokeWidth: Dp
     val drawer: KonnectDrawer
+    val type: KonnectType
 
     data class Line(
         override val color: Color,
         override val strokeWidth: Dp,
         override val drawer: KonnectDrawer = LineDrawer,
+        override val type: KonnectType = KonnectType.STRAIGHT,
     ) : KonnectStyle {
         companion object {
             val Default = Line(
@@ -29,5 +31,6 @@ sealed interface KonnectStyle {
         override val color: Color,
         override val strokeWidth: Dp,
         override val drawer: KonnectDrawer = ArrowDrawer,
+        override val type: KonnectType = KonnectType.STRAIGHT,
     ) : KonnectStyle
 }

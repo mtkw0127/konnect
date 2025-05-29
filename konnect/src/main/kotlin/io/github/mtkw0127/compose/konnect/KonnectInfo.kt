@@ -7,7 +7,7 @@ import androidx.compose.ui.unit.IntSize
 data class KonnectInfo(
     private val size: IntSize,
     private val positionFromParent: Offset,
-    private val anchor: RectAnchor,
+    val anchor: RectAnchor,
     val pointRole: PointRole,
 ) {
     fun anchoredPosition(): Offset {
@@ -24,16 +24,40 @@ data class KonnectInfo(
         }
     }
 
-    enum class RectAnchor {
-        TopStart,
-        TopCenter,
-        TopEnd,
-        CenterStart,
-        Center,
-        CenterEnd,
-        BottomStart,
-        BottomCenter,
-        BottomEnd
+    enum class Position {
+        Corner, StartEndSide, TopBottomSide, Center
+    }
+
+    enum class RectAnchor(
+        val position: Position,
+    ) {
+        TopStart(
+            position = Position.Corner,
+        ),
+        TopCenter(
+            position = Position.TopBottomSide,
+        ),
+        TopEnd(
+            position = Position.Corner,
+        ),
+        CenterStart(
+            position = Position.StartEndSide,
+        ),
+        Center(
+            position = Position.Corner
+        ),
+        CenterEnd(
+            position = Position.StartEndSide,
+        ),
+        BottomStart(
+            position = Position.Corner
+        ),
+        BottomCenter(
+            position = Position.TopBottomSide,
+        ),
+        BottomEnd(
+            position = Position.Corner
+        ),
     }
 
     enum class PointRole {

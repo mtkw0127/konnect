@@ -14,6 +14,9 @@
       <SelectionState runConfigName="ArrowOneSide">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="LineElbowDrag">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>
